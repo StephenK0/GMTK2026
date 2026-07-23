@@ -38,6 +38,7 @@ public class CardSpawning : MonoBehaviour
 		foreach(Card card in cardsSpawned) {
 			card.Remove(); //Plays the animation to remove a card, and then either destroys it or sends it back to the object pool. I'm not sure yet whether we should implement object pooling. 
 		}
+		cardsSpawned.Clear();
 		
 		//Reset the available spawnpoints. 
 		List<GameObject> temp = spawnPoints;
