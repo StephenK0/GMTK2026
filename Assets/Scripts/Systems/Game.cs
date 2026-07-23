@@ -8,5 +8,8 @@ public class Game : MonoBehaviour
 	
 	public void PlayerCompleteSet() {}
 
-	public void PlayerMistake() {}
+	public void PlayerMistake() 
+	{
+		Debug.Log("The player made a mistake...");
+	}
 }

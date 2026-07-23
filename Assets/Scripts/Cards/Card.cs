@@ -6,7 +6,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
 	private protected Vector3 away;
-	private bool onField = false;
+	public bool onField = false;
 	int animationTimer = 0;
 	const int animationLength = 35;
 	Vector3 initialSize;
