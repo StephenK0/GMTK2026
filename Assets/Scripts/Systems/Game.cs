@@ -4,6 +4,8 @@ using UnityEngine;
  */
 public class Game : MonoBehaviour
 {
+	public static Game main { get; private set; }
+	
 	public void PlayerCompleteSet() {}
 
 	public void PlayerMistake() {}
