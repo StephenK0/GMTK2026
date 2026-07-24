@@ -12,12 +12,6 @@ public class MainPlayingCard : Card
 
         if (value == nextCardToClick)
         {
-            //CardManager.nextCardToClick -= 1;
-
-            //if (CardManager.nextCardToClick == 0)
-            //{
-            //    Debug.Log("Set complete!");
-            //}
 	    if(!AdvanceCount()) this.Remove();
         }
         else
@@ -26,6 +20,7 @@ public class MainPlayingCard : Card
         }
     }
 
+    //Advances the card counter down by one. Automatically resets if the counter reaches zero. 
     static bool AdvanceCount() {
         nextCardToClick--;
         if(nextCardToClick == 0) {
