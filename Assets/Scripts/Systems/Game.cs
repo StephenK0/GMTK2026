@@ -52,6 +52,7 @@ public class Game : MonoBehaviour
 
 	public void PlayerMistake() {
 		rewardFlag = false;
+    Debug.Log("The player made a mistake...");
 	}
 
 	//Starts a new set. 
@@ -63,6 +64,5 @@ public class Game : MonoBehaviour
 
 	//TODO!!
 	private void DoGameOver() {
-		
 	}
 }
