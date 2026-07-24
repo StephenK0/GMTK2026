@@ -42,6 +42,7 @@ public class Game : MonoBehaviour
 
 	public void PlayerCompleteSet() {
 		setsCompleted += 1;
+		CardManager.nextCardToClick = 10;
 		
 		if(rewardFlag) timer += bonusTime;
 
