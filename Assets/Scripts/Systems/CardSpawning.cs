@@ -9,10 +9,12 @@ public class CardSpawning : MonoBehaviour
 
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	void Start()
+	void Awake()
 	{
 		spawnPointsAvailable = new Queue<GameObject>();
 		cardsSpawned = new HashSet<Card>();
+	}
+	void Start() {
 		Reset();
 	}
 	
