@@ -22,8 +22,9 @@ public class Game : MonoBehaviour
 
 	bool rewardFlag = true;
 	
-	[SerializeField] TMP_Text timerDisplay;
-	[SerializeField] TMP_Text scoreDisplay;
+	//[SerializeField] TMP_Text timerDisplay;
+	//[SerializeField] TMP_Text scoreDisplay;
+	[SerializeField] TMP_Text display;
 
 	[SerializeField] CardCalculator calculator;
 	[SerializeField] CardSpawning spawner;
@@ -39,8 +40,9 @@ public class Game : MonoBehaviour
 	private void Update() {
 		timer -= Time.deltaTime;
 		if(timer <= 0) DoGameOver();
-		timerDisplay.text = "" + Mathf.Floor(timer);
-		scoreDisplay.text = "" + setsCompleted;
+		//timerDisplay.text = "" + Mathf.Floor(timer);
+		//scoreDisplay.text = "" + setsCompleted;
+		display.text = "" + Mathf.Floor(timer / 60).ToString("00") + ":" + Mathf.Floor(timer) % 60 + "\n" + setsCompleted.ToString("00 00");
 	}
 
 	public void PlayerCompleteSet() {
