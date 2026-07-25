@@ -17,6 +17,7 @@ public class StaticData
 		highScores.Sort();
 		highScores.Reverse();
 		highScores = highScores.GetRange(0, savesLength);
+		mostRecent = score;
 		Debug.Log("Highscores: ");
 		Util.PrintList(highScores);
 	}
