@@ -42,7 +42,7 @@ public class Game : MonoBehaviour
 		if(timer <= 0) DoGameOver();
 		//timerDisplay.text = "" + Mathf.Floor(timer);
 		//scoreDisplay.text = "" + setsCompleted;
-		display.text = "" + Mathf.Floor(timer / 60).ToString("00") + ":" + Mathf.Floor(timer) % 60 + "\n" + setsCompleted.ToString("00 00");
+		display.text = "" + Mathf.Floor(timer / 60).ToString("00") + ":" + Mathf.Floor(timer) % 60 + "   " + setsCompleted.ToString("000");
 	}
 
 	public void PlayerCompleteSet() {
