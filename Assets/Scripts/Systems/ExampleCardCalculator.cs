@@ -20,18 +20,29 @@ public class ExampleCardCalculator : CardCalculator
 			free.Add(grid[1]);
 			grid.RemoveAt(1);
 			grid.RemoveAt(0);
+
+			// Set the card movement speed.
+			CardManager.cardMovementSpeed = 7;
 		}
 
 		if(level > 3) {
 			Util.ShuffleList(distractorsRandom);
 			free.Add(distractorsRandom[0]);
 			free.Add(distractorsRandom[1]);
+
+			// Set the card movement speed and start positions.
+			CardManager.cardMovementSpeed = 3;
+			CardManager.verticalUpperStartPosition = 20;
+			CardManager.verticalLowerStartPosition = -20;
 		}
 
 		if(level > 5) {
 			Util.ShuffleList(distractorsStiff);
 			grid.Add(distractorsStiff[0]);
 			grid.Add(distractorsStiff[1]);
+
+			// Set the card movement speed.
+			CardManager.cardMovementSpeed = 5;
 		}
 
 		spawner.SpawnCards(grid, true);

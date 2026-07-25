@@ -46,7 +46,7 @@ public class Card : MonoBehaviour
 		if(onField) Debug.LogError("Attempting to add card " + gameObject.name + " to the playing field, but it was already added!");
 		transform.position = g.transform.position;
 		transform.rotation = g.transform.rotation;
-		onField = true;
+		this.onField = true;
 		currentAnimation = DisplayMode.show; 
 		animationTimer = 0;
 	}
@@ -57,7 +57,7 @@ public class Card : MonoBehaviour
 		if(onField) Debug.LogError("Attempting to add card " + gameObject.name + " to the playing field, but it was already added!");
 		transform.position = Random.insideUnitCircle * 5;
 		transform.Rotate(0, 0, Random.Range(-180, 180)); //TODO: Make more reliable!
-		onField = true;
+		this.onField = true;
 		currentAnimation = DisplayMode.show; 
 		animationTimer = 0;
 	}
