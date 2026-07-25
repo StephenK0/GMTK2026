@@ -1,11 +1,16 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ExampleCardCalculator : CardCalculator 
 {
 	[SerializeField] List<Card> countingCards; //A list of the main cards for counting. 
 	[SerializeField] List<Card> distractorsRandom; //The cards that appear off the grid that are distractors. 
 	[SerializeField] List<Card> distractorsStiff; //The cards that appear on the grid that are distractors. 
+
+	[SerializeField] Text guidedInstructions;
+
 	public override void SpawnCards(CardSpawning spawner, int level) {
 		List<Card> grid = new List<Card>();
 		List<Card> free = new List<Card>();
@@ -23,7 +28,10 @@ public class ExampleCardCalculator : CardCalculator
 
 			// Set the card movement speed.
 			CardManager.cardMovementSpeed = 7;
-		}
+
+			// Alter the guidedInstructions.
+			guidedInstructions.text = "Keep going!";
+        }
 
 		if(level > 3) {
 			Util.ShuffleList(distractorsRandom);
@@ -34,6 +42,9 @@ public class ExampleCardCalculator : CardCalculator
 			CardManager.cardMovementSpeed = 3;
 			CardManager.verticalUpperStartPosition = 20;
 			CardManager.verticalLowerStartPosition = -20;
+
+			// Alter the guidedInstructions.
+			guidedInstructions.text = "Keep counting down. Avoid clicking anything else!";
 		}
 
 		if(level > 5) {
