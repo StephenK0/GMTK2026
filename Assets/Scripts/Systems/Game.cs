@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 /*
  * Responsible for the main gameplay loop, such as keeping track of how many sets the player has completed. 
@@ -16,11 +17,14 @@ public class Game : MonoBehaviour
 	[SerializeField] float timerReset = 100; //How long the game lasts, assuming the player never gets extra time from perfect sets.
 	
 	[SerializeField] float bonusTime = 5; //How much extra time the player gets for perfectly completing a set. 
+	
+	[SerializeField] string gameOverScene = "GameOver"; //How much extra time the player gets for perfectly completing a set. 
 
 	bool rewardFlag = true;
 	
-	[SerializeField] TMP_Text timerDisplay;
-	[SerializeField] TMP_Text scoreDisplay;
+	//[SerializeField] TMP_Text timerDisplay;
+	//[SerializeField] TMP_Text scoreDisplay;
+	[SerializeField] TMP_Text display;
 
 	[SerializeField] CardCalculator calculator;
 	[SerializeField] CardSpawning spawner;
@@ -36,13 +40,14 @@ public class Game : MonoBehaviour
 	private void Update() {
 		timer -= Time.deltaTime;
 		if(timer <= 0) DoGameOver();
-		timerDisplay.text = "" + Mathf.Floor(timer);
-		scoreDisplay.text = "" + setsCompleted;
+		//timerDisplay.text = "" + Mathf.Floor(timer);
+		//scoreDisplay.text = "" + setsCompleted;
+		display.text = "" + Mathf.Floor(timer / 60).ToString("00") + ":" + Mathf.Floor(timer) % 60 + "\n" + setsCompleted.ToString("00 00");
 	}
 
 	public void PlayerCompleteSet() {
 		setsCompleted += 1;
-		CardManager.nextCardToClick = 10;
+		//CardManager.nextCardToClick = 10;
 		
 		if(rewardFlag) timer += bonusTime;
 
@@ -57,7 +62,6 @@ public class Game : MonoBehaviour
 	}
 
 	//Starts a new set. 
-	//TODO!! Maybe this should be a separate class? 
 	private void NewSet() {
 		spawner.Reset();
 		calculator.SpawnCards(spawner, setsCompleted);
@@ -65,5 +69,8 @@ public class Game : MonoBehaviour
 
 	//TODO!!
 	private void DoGameOver() {
+		StaticData.AddHighScore(setsCompleted);
+        	SceneManager.LoadScene(gameOverScene);
+		MainPlayingCard.ResetCount();
 	}
 }
