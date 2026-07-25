@@ -3137,6 +3137,7 @@ MonoBehaviour:
   timerReset: 60
   bonusTime: 5
   gameOverScene: GameOver
+  mistakeSound: {fileID: 8300000, guid: 28dc17c206b5f1e48b4f07054c4f24be, type: 3}
   display: {fileID: 1313574731}
   calculator: {fileID: 1713373652}
   spawner: {fileID: 1713373650}
