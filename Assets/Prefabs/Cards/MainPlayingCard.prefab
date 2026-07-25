@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  correct: {fileID: 8300000, guid: 3ee8b591f2791fb469ea0b55bdff210a, type: 3}
+  setComplete: {fileID: 8300000, guid: e9c1735f672bc044fa405def2e96f58c, type: 3}
 --- !u!61 &-7149881499731709308
 BoxCollider2D:
   m_ObjectHideFlags: 0
