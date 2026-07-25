@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 /*
  * Responsible for the main gameplay loop, such as keeping track of how many sets the player has completed. 
@@ -16,6 +17,8 @@ public class Game : MonoBehaviour
 	[SerializeField] float timerReset = 100; //How long the game lasts, assuming the player never gets extra time from perfect sets.
 	
 	[SerializeField] float bonusTime = 5; //How much extra time the player gets for perfectly completing a set. 
+	
+	[SerializeField] string gameOverScene = "GameOver"; //How much extra time the player gets for perfectly completing a set. 
 
 	bool rewardFlag = true;
 	
@@ -57,7 +60,6 @@ public class Game : MonoBehaviour
 	}
 
 	//Starts a new set. 
-	//TODO!! Maybe this should be a separate class? 
 	private void NewSet() {
 		spawner.Reset();
 		calculator.SpawnCards(spawner, setsCompleted);
@@ -65,5 +67,8 @@ public class Game : MonoBehaviour
 
 	//TODO!!
 	private void DoGameOver() {
+		StaticData.AddHighScore(setsCompleted);
+        	SceneManager.LoadScene(gameOverScene);
+		MainPlayingCard.ResetCount();
 	}
 }

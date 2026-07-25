@@ -32,4 +32,7 @@ public class MainPlayingCard : Card
 	return false;
     }
 
+    public static void ResetCount() {
+	    nextCardToClick = 10;
+    }
 }

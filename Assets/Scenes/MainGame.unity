@@ -3115,8 +3115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b06c91309216444a46a8a7b12b4659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerReset: 100
+  timerReset: 60
   bonusTime: 5
+  gameOverScene: GameOver
   timerDisplay: {fileID: 1109459461}
   scoreDisplay: {fileID: 748131406}
   calculator: {fileID: 1713373652}
