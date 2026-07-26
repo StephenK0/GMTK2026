@@ -8,6 +8,7 @@ public class ExampleCardCalculator : CardCalculator
 	[SerializeField] List<Card> countingCards; //A list of the main cards for counting. 
 	[SerializeField] List<Card> distractorsRandom; //The cards that appear off the grid that are distractors. 
 	[SerializeField] List<Card> distractorsStiff; //The cards that appear on the grid that are distractors. 
+	[SerializeField] List<Card> distractorsFancy; //The cards that appear on the grid that are distractors and also move and/or teleport. 
 
 	[SerializeField] Text guidedInstructions;
 
@@ -26,12 +27,9 @@ public class ExampleCardCalculator : CardCalculator
 			grid.RemoveAt(1);
 			grid.RemoveAt(0);
 
-			// Set the card movement speed.
-			CardManager.cardMovementSpeed = 7;
-
 			// Alter the guidedInstructions.
 			guidedInstructions.text = "Keep going!";
-        }
+	        }
 
 		if(level > 3) {
 			Util.ShuffleList(distractorsRandom);
@@ -54,6 +52,22 @@ public class ExampleCardCalculator : CardCalculator
 
 			// Set the card movement speed.
 			CardManager.cardMovementSpeed = 5;
+		}
+		if(level > 8) {
+			guidedInstructions.text = "";
+		}
+
+		if(level > 9) {
+			Util.ShuffleList(distractorsFancy);
+			// Set the card movement speed.
+			CardManager.cardMovementSpeed = 7;
+			free.Add(distractorsFancy[0]);
+			free.Add(distractorsFancy[1]);
+			free.Add(distractorsFancy[2]);
+		}
+
+		if(level > 25) {
+			guidedInstructions.text = "HOW";
 		}
 
 		spawner.SpawnCards(grid, true);
