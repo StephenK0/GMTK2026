@@ -21,4 +21,9 @@ public class SoundSystem : MonoBehaviour
 		sfx.clip = sound;
 		sfx.Play();
 	}
+
+	public void SetMusic(AudioClip sound) {
+		music.clip = sound;
+		music.Play();
+	}
 }
