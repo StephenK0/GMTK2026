@@ -39,7 +39,7 @@ public class Card : MonoBehaviour
 		if(!onField) Debug.LogError("Attempting to remove card " + gameObject.name + " from the playing field, but it was already removed!");
 		onField = false;
 		currentAnimation = DisplayMode.hide; 
-		animationTimer = animationLength;
+		animationTimer = 2;
 	}
 	
 	public void Spawn(GameObject g) {
