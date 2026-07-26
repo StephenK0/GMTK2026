@@ -3,6 +3,8 @@ using UnityEngine;
 public class MainPlayingCard : Card
 {
     [SerializeField] int value;
+    [SerializeField] AudioClip correct;
+    [SerializeField] AudioClip setComplete;
     static int nextCardToClick = 10;
 
     // Remove the card when the player clicks correctly and trigger a mistake otherwise.
@@ -12,12 +14,13 @@ public class MainPlayingCard : Card
 
         if (value == nextCardToClick)
         {
-	    if(!AdvanceCount()) this.Remove();
+            if(!AdvanceCount()) {
+                this.Remove();
+	        SoundSystem.main.PlaySoundEffect(correct);
+            }
+            else SoundSystem.main.PlaySoundEffect(setComplete);
         }
-        else
-        {
-            Game.main.PlayerMistake();
-        }
+        else Game.main.PlayerMistake();
     }
 
     //Advances the card counter down by one. Automatically resets if the counter reaches zero. 

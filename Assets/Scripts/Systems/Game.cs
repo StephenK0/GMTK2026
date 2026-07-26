@@ -20,6 +20,8 @@ public class Game : MonoBehaviour
 	
 	[SerializeField] string gameOverScene = "GameOver"; //How much extra time the player gets for perfectly completing a set. 
 
+	[SerializeField] AudioClip mistakeSound; //How much extra time the player gets for perfectly completing a set. 
+
 	bool rewardFlag = true;
 	
 	//[SerializeField] TMP_Text timerDisplay;
@@ -58,7 +60,8 @@ public class Game : MonoBehaviour
 
 	public void PlayerMistake() {
 		rewardFlag = false;
-		Debug.Log("The player made a mistake...");
+		SoundSystem.main.PlaySoundEffect(mistakeSound);
+    Debug.Log("The player made a mistake...");
 	}
 
 	//Starts a new set. 
