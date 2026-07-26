@@ -73,7 +73,7 @@ public class Game : MonoBehaviour
 	//TODO!!
 	private void DoGameOver() {
 		StaticData.AddHighScore(setsCompleted);
-        	SceneManager.LoadScene(gameOverScene);
+        SceneManager.LoadScene(gameOverScene);
 		MainPlayingCard.ResetCount();
 	}
 }
