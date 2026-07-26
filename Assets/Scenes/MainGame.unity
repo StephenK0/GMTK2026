@@ -3471,7 +3471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b06c91309216444a46a8a7b12b4659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerReset: 60
+  timerReset: 90
   bonusTime: 5
   gameOverScene: GameOver
   mistakeSound: {fileID: 8300000, guid: 28dc17c206b5f1e48b4f07054c4f24be, type: 3}
