@@ -6,9 +6,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class ExampleCardCalculator : CardCalculator 
 {
 	[SerializeField] List<Card> countingCards; //A list of the main cards for counting. 
-	[SerializeField] List<Card> distractorsRandom; //The cards that appear off the grid that are distractors. 
-	[SerializeField] List<Card> distractorsStiff; //The cards that appear on the grid that are distractors. 
-	[SerializeField] List<Card> distractorsFancy; //The cards that appear on the grid that are distractors and also move and/or teleport. 
+	[SerializeField] List<Card> distractors; //The cards that are distractors but don't do anything special. 
+	[SerializeField] List<Card> distractorsFancy; //The cards that are distractors and also move and/or teleport. 
 
 	[SerializeField] Text guidedInstructions;
 
@@ -32,9 +31,9 @@ public class ExampleCardCalculator : CardCalculator
 	        }
 
 		if(level > 3) {
-			Util.ShuffleList(distractorsRandom);
-			free.Add(distractorsRandom[0]);
-			free.Add(distractorsRandom[1]);
+			Util.ShuffleList(distractors);
+			free.Add(distractors[0]);
+			free.Add(distractors[1]);
 
 			// Set the card movement speed and start positions.
 			CardManager.cardMovementSpeed = 3;
@@ -46,9 +45,8 @@ public class ExampleCardCalculator : CardCalculator
 		}
 
 		if(level > 5) {
-			Util.ShuffleList(distractorsStiff);
-			grid.Add(distractorsStiff[0]);
-			grid.Add(distractorsStiff[1]);
+			grid.Add(distractors[2]);
+			grid.Add(distractors[3]);
 
 			// Set the card movement speed.
 			CardManager.cardMovementSpeed = 5;
